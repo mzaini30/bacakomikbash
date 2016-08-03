@@ -1,9 +1,9 @@
 #!/bin/bash
 
+LOKASI="$(basename "$PWD")"
+
 clear
 rm baca.html
-
-LOKASI="$(basename "$PWD")"
 
 echo '<!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,13 @@ echo '<!DOCTYPE html>
 
 <body>' >> baca.html
 
-find . -name "*.jpg" -type f -exec sh -c 'echo "<img src=\"$0\"/>" >> baca.html' {} \;
+if [ $1 == "jpg" ]
+	then
+		for i in *.jpg; do echo "<img src=\"$i\"/>" >> baca.html; done;
+elif [ $1 == "png" ]
+	then
+		for i in *.png; do echo "<img src=\"$i\"/>" >> baca.html; done;
+fi
 
 echo '</body>
 
