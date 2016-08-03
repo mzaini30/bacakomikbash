@@ -1,0 +1,37 @@
+#!/bin/bash
+
+clear
+rm baca.html
+
+LOKASI="$(basename "$PWD")"
+
+echo '<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title>'$LOKASI' - Baca Komik - Dibuat oleh Muhammad Zaini .com</title>
+    <style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	img {
+		width: 80%;
+		display: block;
+		margin: auto;
+	}
+	</style>
+</head>
+
+<body>' >> baca.html
+
+find . -name "*.jpg" -type f -exec sh -c 'echo "<img src=\"$0\"/>" >> baca.html' {} \;
+
+echo '</body>
+
+</html>
+' >> baca.html
+
+echo "Silahkan membaca :)"
