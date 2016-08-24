@@ -33,6 +33,9 @@ if [ $1 == "jpg" ]
 elif [ $1 == "png" ]
 	then
 		for i in *.png; do echo "<img src=\"$i\"/>" >> baca.html; done;
+elif [ $1 == "jpeg" ]
+	then
+		for i in *.jpeg; do echo "<img src=\"$i\"/>" >> baca.html; done;
 fi
 
 echo '</body>
