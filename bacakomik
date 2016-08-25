@@ -2,7 +2,6 @@
 
 LOKASI="$(basename "$PWD")"
 
-clear
 rm baca.html
 
 echo '<!DOCTYPE html>
@@ -27,16 +26,7 @@ echo '<!DOCTYPE html>
 
 <body>' >> baca.html
 
-if [ $1 == "jpg" ]
-	then
-		for i in *.jpg; do echo "<img src=\"$i\"/>" >> baca.html; done;
-elif [ $1 == "png" ]
-	then
-		for i in *.png; do echo "<img src=\"$i\"/>" >> baca.html; done;
-elif [ $1 == "jpeg" ]
-	then
-		for i in *.jpeg; do echo "<img src=\"$i\"/>" >> baca.html; done;
-fi
+for i in *; do echo "<img src='$i' alt=''/>" >> baca.html; done;
 
 echo '</body>
 
